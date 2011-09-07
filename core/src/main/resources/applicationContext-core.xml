@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.4.xsd">
+
+  <context:component-scan base-package="com.trailmagic.jumper.core"/>
+
+  <!--suppress SpringPlaceholdersInspection -->
+  <context:property-placeholder location="file:${jumper.configDir}/jumper.properties"/>
+
+  <security:authentication-manager>
+    <security:authentication-provider user-service-ref="userService">
+      <security:password-encoder ref="passwordEncoder">
+        <security:salt-source user-property="salt"/>
+      </security:password-encoder>
+    </security:authentication-provider>
+  </security:authentication-manager>
+
+  <bean name="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+    <constructor-arg value="256"/>
+  </bean>
+
+  <bean name="db" class="com.trailmagic.jumper.core.mongodb.MongoFactoryBean">
+    <constructor-arg value="${mongo.db.name}"/>
+  </bean>
+</beans>

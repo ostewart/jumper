@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <appender name="logfile" class="ch.qos.logback.core.ConsoleAppender">
+          <layout class="ch.qos.logback.classic.PatternLayout">
+              <Pattern>%d [%thread] %-5level %logger{36} - %msg%n</Pattern>
+          </layout>
+      </appender>
+    <root level="INFO">
+        <appender-ref ref="logfile"/>
+    </root>
+
+    <!--<logger level="debug" name="org.springframework.security.web.authentication"/>-->
+    <!--<logger level="debug" name="org.springframework.security.authentication"/>-->
+</configuration>
