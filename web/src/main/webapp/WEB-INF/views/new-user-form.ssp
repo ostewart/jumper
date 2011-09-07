@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<%@ val errors: Iterable[String] %>
+<html lang="en">
+<head>
+    <title>Jumper</title>
+    <meta name="viewport" content="width = 550"/>
+
+    <link rel="stylesheet" type="text/css" href="${contextPath}/style/places.css"/>
+    <style type="text/css">
+        .signup {
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .signup input {
+            width: 280px;
+            margin: 1ex 1em;
+            padding: 6px;
+            font-size: 16px;
+            border: 1px solid;
+        }
+
+        .signup input[type='submit'] {
+            width: 200px;
+            margin-left: 200px;
+        }
+
+        .signup label {
+            text-align: right;
+            display: block;
+            font-size: 16px;
+
+        }
+    </style>
+</head>
+<body>
+${include("site-header.ssp")}
+
+<div class="content">
+    <h1>Create an Account</h1>
+
+    <form class="signup" method="post" action="${contextPath}/users/new">
+        #if (!errors.isEmpty)
+        <div class="errors">
+            <ul>
+                #for(err <- errors)
+                    <li>${err}</li>
+                #end
+            </ul>
+        </div>
+        #end
+        <label>
+            Username:
+            <input name="username" type="text"/>
+        </label>
+        <label>
+            First Name:
+            <input name="firstName" type="text" autocapitalize="on"/>
+        </label>
+        <label>
+            Last Name:
+            <input name="lastName" type="text" autocapitalize="on"/>
+        </label>
+        <label>
+            Email Address:
+            <input name="email" type="email"/>
+        </label>
+        <label>
+            Password:
+            <input name="password" type="password"/>
+        </label>
+
+        <input type="submit" value="Create Account"/>
+    </form>
+</div>
+</body>
+</html>

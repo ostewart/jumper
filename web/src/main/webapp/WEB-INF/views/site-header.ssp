@@ -1,0 +1,12 @@
+#import(com.trailmagic.jumper.web.util.RequestHelper)
+#import(com.trailmagic.jumper.web.util.SecurityHelper)
+<div class="site-header">
+    <div class="auth-info">
+        #match (SecurityHelper.getAuthenticatedUser)
+        #case (Some(user))
+            ${user.firstName} ${user.lastName} | <a href="${contextPath}/logout">Sign out</a>
+        #otherwise
+            <a href='${contextPath}/login?targetUrl=${RequestHelper.currentUrlEscaped(request)}'>Sign in</a>
+        #end
+    </div>
+</div>

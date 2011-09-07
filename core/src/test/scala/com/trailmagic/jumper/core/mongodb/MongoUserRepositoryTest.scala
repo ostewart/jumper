@@ -135,16 +135,16 @@ class MongoUserRepositoryTest {
   @Test
   def testCanSaveAndRetrieveUserWithFriends() {
     val facebookFriend = Friend(None, Some("12345"))
-    val pinfulFriend = Friend(Some("another"), None)
-    val facebookAndPinfulFriend = Friend(Some("third"), Some("4567"))
-    val user = TestUser.copy(friends = Set(facebookFriend, pinfulFriend, facebookAndPinfulFriend))
+    val localFriend = Friend(Some("another"), None)
+    val facebookAndLocalFriend = Friend(Some("third"), Some("4567"))
+    val user = TestUser.copy(friends = Set(facebookFriend, localFriend, facebookAndLocalFriend))
     val savedUser = repository.save(user)
 
     val foundUser = repository.findById(savedUser.id).get
 
     assertTrue(foundUser.friends.contains(facebookFriend))
-    assertTrue(foundUser.friends.contains(pinfulFriend))
-    assertTrue(foundUser.friends.contains(facebookAndPinfulFriend))
+    assertTrue(foundUser.friends.contains(localFriend))
+    assertTrue(foundUser.friends.contains(facebookAndLocalFriend))
 
   }
 

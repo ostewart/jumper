@@ -7,9 +7,11 @@
   <groupId>com.trailmagic.jumper</groupId>
   <artifactId>jumper</artifactId>
   <packaging>pom</packaging>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <modules>
     <module>core</module>
+    <module>web</module>
+    <module>integration-test</module>
   </modules>
 
   <properties>
@@ -102,6 +104,11 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.trailmagic.jumper</groupId>
+        <artifactId>core</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
       <dependency>
         <groupId>org.scala-lang</groupId>
         <artifactId>scala-library</artifactId>
@@ -320,13 +327,8 @@
       </dependency>
       <dependency>
         <groupId>org.fusesource.scalate</groupId>
-        <artifactId>scalate-wikitext</artifactId>
-        <version>1.4.1</version>
-      </dependency>
-      <dependency>
-        <groupId>org.fusesource.scalate</groupId>
         <artifactId>scalate-page</artifactId>
-        <version>1.4.1</version>
+        <version>1.5.1</version>
       </dependency>
       <dependency>
         <groupId>org.fusesource.scalamd</groupId>
@@ -336,14 +338,8 @@
       <!-- testing -->
       <dependency>
         <groupId>org.fusesource.scalate</groupId>
-        <artifactId>scalate-test</artifactId>
-        <version>1.4.1</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.fusesource.scalate</groupId>
         <artifactId>scalate-spring-mvc</artifactId>
-        <version>1.4.1</version>
+        <version>1.5.1</version>
       </dependency>
       <dependency>
         <groupId>com.novus</groupId>
@@ -396,6 +392,11 @@
         <groupId>net.liftweb</groupId>
         <artifactId>lift-json_${scala.dependency.version}</artifactId>
         <version>2.4-M3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>4.1.0.Final</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

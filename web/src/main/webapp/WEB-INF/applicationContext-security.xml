@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.4.xsd">
+
+  <security:http disable-url-rewriting="true">
+    <security:intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https"/>
+    <security:intercept-url pattern="/protected" access="ROLE_USER" requires-channel="https"/>
+    <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY,ROLE_USER" requires-channel="https"/>
+    <security:form-login login-page="/login" default-target-url="/"
+                         authentication-failure-url="/login?failure=true" always-use-default-target="false"/>
+    <security:http-basic/>
+    <security:remember-me key="Jump! Jump!"/>
+    <security:anonymous granted-authority="ROLE_EVERYONE,ROLE_ANONYMOUS"/>
+    <security:logout logout-url="/logout" logout-success-url="/"/>
+
+    <security:session-management session-fixation-protection="none"/>
+    <security:port-mappings>
+      <security:port-mapping http="80" https="443"/>
+      <security:port-mapping http="8080" https="8443"/>
+      <security:port-mapping http="8081" https="8444"/>
+    </security:port-mappings>
+  </security:http>
+</beans>

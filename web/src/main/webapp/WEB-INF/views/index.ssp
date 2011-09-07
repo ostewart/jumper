@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jumper</title>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/style/places.css"/>
+</head>
+<body>
+${include("site-header.ssp")}
+
+<div class="content">
+  <h1>Welcome!</h1>
+  <div class="signup">
+        <form method="post" action="${contextPath}/signup">
+            #if (parameter("failure") != null)
+            <div class="error">That doesn't look like an email address</div>
+            #end
+            <label for="emailAddress">Sign up now:</label>
+            <input id="emailAddress" placeholder="Email Address" name="emailAddress" type="email"/>
+            <input type="submit" value="Sign Up"/>
+        </form>
+        <span class="promise">We promise not to spam you or give out your email address.</span>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="javascript/jquery-1.5.2.min.js"></script>
+<script src="javascript/placeholder.js"></script>
+</body>
+</html>
