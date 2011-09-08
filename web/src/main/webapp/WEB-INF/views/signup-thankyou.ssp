@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Jumper</title>
-    <meta name="viewport" content="width = 550"/>
-
-    <link rel="stylesheet" type="text/css" href="${contextPath}/style/places.css"/>
-</head>
-<body>
-${include("site-header.ssp")}
-
+<% attributes("title") = "Jumper | Thank You" %>
 <div class="content">
 <h1>Thank You</h1>
     <p>Thanks for signing up!  We'll let you know as soon as the site is ready for you to use.</p>
@@ -31,6 +21,3 @@ var google_conversion_value = 0;
 <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/962016048/?label=xGdLCNC52AIQsObcygM&amp;guid=ON&amp;script=0"/>
 </div>
 </noscript>
-
-</body>
-</html>

@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Jumper Login</title>
-  <meta name="viewport" content="width = 550"/>
-  <link type="text/css" rel="stylesheet" href="${contextPath}/style/places.css"/>
-</head>
-<body>
-<div class="site-header"></div>
+<% attributes("title") = "Jumper | Login" %>
 <div class="content">
   #if (parameter("failure") != null)
   #if ( parameter("failure").toBoolean )
@@ -16,28 +8,32 @@
 
   <h1>Please login:</h1>
 
-    <form method="POST" action="j_spring_security_check">
-    <table>
-      <tr>
-        <td><label for="username">Username:</label></td>
-        <td><input id="username" type="text" name="j_username" autofocus="true"/></td>
-      </tr>
-      <tr>
-        <td><label for="password">Password:</label></td>
-        <td><input id="password" type="password" name="j_password"/></td>
-      </tr>
-    </table>
+  <form method="POST" action="j_spring_security_check">
+    <div class="clearfix">
+      <label for="username">Username:</label>
+      <div class="input">
+        <input id="username" type="text" name="j_username" autofocus="true"/>
+      </div>
+    </div>
+    <div class="clearfix">
+      <label for="password">Password:</label>
+      <div class="input">
+        <input id="password" type="password" name="j_password"/>
+      </div>
+    </div>
     #if (request.getParameter("targetUrl") != null)
     <input type="hidden" name="spring-security-redirect" value='${request.getParameter("targetUrl")}'/>
-      <!-- this may be needed to keep it going for login failure -->
+    <!-- this may be needed to keep it going for login failure -->
     <input type="hidden" name="targetUrl" value='${request.getParameter("targetUrl")}'/>
     #end
-        <label>
-            Remember me:
-            <input type="checkbox" name="_spring_security_remember_me"/>
-        </label>
-        <br/>
-        <input type="submit" value="Login"/>
+    <label>
+      Remember me:
+      <input type="checkbox" name="_spring_security_remember_me"/>
+    </label>
+    <br/>
+    <div class="actions">
+      <input type="submit" value="Login" class="btn primary"/>
+    </div>
   </form>
   <script type="text/javascript">
     if (!("autofocus" in document.createElement("input"))) {
@@ -45,5 +41,3 @@
     }
   </script>
 </div>
-</body>
-</html>

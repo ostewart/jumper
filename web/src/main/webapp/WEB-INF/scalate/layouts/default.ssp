@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+#import(com.trailmagic.jumper.web.util.RequestHelper)
+#import(com.trailmagic.jumper.web.util.SecurityHelper)
+<%@ var body: String %>
+<%@ var title: String %>
+<html lang="en">
+<head>
+  <title>${title}</title>
+  <link rel="stylesheet" type="text/css" href="${contextPath}/style/bootstrap-1.2.0.css">
+  <style type="text/css">
+    body {
+      padding-top: 40px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="topbar-wrapper" style="z-index: 5;">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container">
+          <h3><a href="${contextPath}/">Jumper</a></h3>
+          <ul class="nav">
+            <li class="active"><a href="${contextPath}/">Home</a></li>
+          </ul>
+          <ul class="nav secondary-nav">
+            #match (SecurityHelper.getAuthenticatedUser)
+            #case (Some(user))
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle auth-trigger">${user.firstName} ${user.lastName}</a>
+              <ul class="dropdown-menu">
+                <li><a href="${contextPath}/logout">Sign out</a></li>
+              </ul>
+            </li>
+            #otherwise
+            <li><a class="auth-trigger" href='${contextPath}/login?targetUrl=${RequestHelper.currentUrlEscaped(request)}'>Sign in</a></li>
+            #end
+          </ul>
+
+        </div>
+      </div>
+      <!-- /topbar-inner -->
+    </div>
+    <!-- /topbar -->
+  </div>
+
+  ${unescape(body)}
+
+  <script type="text/javascript" src="javascript/jquery-1.5.2.min.js"></script>
+  <script>
+    $("body").bind("click", function (e) {
+      $('.dropdown-toggle, .menu').parent("li").removeClass("open");
+    });
+    $(".dropdown-toggle, .menu").click(function (e) {
+      var $li = $(this).parent("li").toggleClass('open');
+      return false;
+    });
+  </script>
+</div>
+
+</body>
+</html>

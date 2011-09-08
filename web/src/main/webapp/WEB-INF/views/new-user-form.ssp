@@ -1,11 +1,5 @@
-<!DOCTYPE html>
 <%@ val errors: Iterable[String] %>
-<html lang="en">
-<head>
-    <title>Jumper</title>
-    <meta name="viewport" content="width = 550"/>
-
-    <link rel="stylesheet" type="text/css" href="${contextPath}/style/places.css"/>
+<% attributes("title") = "Jumper | Create Account" %>
     <style type="text/css">
         .signup {
             width: 100%;
@@ -32,9 +26,6 @@
 
         }
     </style>
-</head>
-<body>
-${include("site-header.ssp")}
 
 <div class="content">
     <h1>Create an Account</h1>
@@ -73,5 +64,3 @@ ${include("site-header.ssp")}
         <input type="submit" value="Create Account"/>
     </form>
 </div>
-</body>
-</html>

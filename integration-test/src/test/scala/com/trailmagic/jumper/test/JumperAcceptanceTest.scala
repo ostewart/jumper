@@ -51,10 +51,11 @@ class JumperAcceptanceTest {
     assertEquals(originalUrl, driver.getCurrentUrl)
 
     // And make sure the header shows the right user information
+    assertEquals("Authenticated user's name in dropdown",
+                 DataHelper.TestUser.firstName + " " + DataHelper.TestUser.lastName,
+                 driver.findElement(By.cssSelector(".auth-trigger")).getText)
+    driver.findElement(By.cssSelector(".auth-trigger")).click()
     driver.findElement(By.linkText("Sign out"))
-    assertEquals("Authenticated user's name in auth info",
-                 DataHelper.TestUser.firstName + " " + DataHelper.TestUser.lastName + " | Sign out",
-                 driver.findElement(By.cssSelector(".auth-info")).getText)
   }
 
   @Test
@@ -82,7 +83,7 @@ class JumperAcceptanceTest {
   def testFrontPagePresentsSignupFormToUnauthenticatedUser() {
     driver.get(WebConstants.HomeUrl)
     driver.findElement(By.name("emailAddress"))
-    assertEquals("No name in authentication info", "Sign in", driver.findElement(By.cssSelector(".auth-info")).getText)
+    assertEquals("No name in authentication info", "Sign in", driver.findElement(By.cssSelector(".auth-trigger")).getText)
   }
 
   @Test

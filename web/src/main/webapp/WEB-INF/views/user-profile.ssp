@@ -1,59 +1,11 @@
-<!DOCTYPE html>
 #import(com.trailmagic.jumper.core.SavedUser)
 <%@ val user: SavedUser %>
-<html lang="en">
-<head>
-    <title>${user.firstName} ${user.lastName}</title>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/style/places.css"/>
-    <style type="text/css">
-        .created-date {
-            text-align: right;
-        }
-
-        .distance {
-            text-align: right;
-        }
-
-        .distance-head {
-            text-align: right;
-        }
-
-        .placemark-list {
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .placemark-list td {
-            margin-left: 1em;
-        }
-
-        .placemark-list li {
-            width: 100%;
-        }
-
-        .latitude {
-            display: none;
-        }
-
-        .longitude {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-${include("site-header.ssp")}
-
-
+<% attributes("title") = "Jumper | " + user.firstName + " " + user.lastName %>
 <div class="content">
-    <h1>${user.firstName} ${user.lastName}</h1>
+  <h1>${user.firstName} ${user.lastName}</h1>
 
 </div>
 <script type="text/javascript" src="${contextPath}/javascript/modernizr-1.7.min.js"></script>
-<script type="text/javascript" src="${contextPath}/javascript/jquery-1.5.2.min.js"></script>
 <script type="text/javascript" src="${contextPath}/javascript/geocoding.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=geometry"></script>
 <script type="text/javascript" src="${contextPath}/javascript/maps.js"></script>
-
-</body>
-</html>

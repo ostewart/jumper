@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Jumper</title>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/style/places.css"/>
-</head>
-<body>
-${include("site-header.ssp")}
+<% attributes("title") = "Jumper" %>
 
 <div class="content">
   <h1>Welcome!</h1>
@@ -23,7 +16,4 @@ ${include("site-header.ssp")}
 </div>
 
 
-<script type="text/javascript" src="javascript/jquery-1.5.2.min.js"></script>
 <script src="javascript/placeholder.js"></script>
-</body>
-</html>
