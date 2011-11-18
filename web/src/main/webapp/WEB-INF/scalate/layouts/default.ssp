@@ -3,6 +3,8 @@
 #import(com.trailmagic.jumper.web.util.SecurityHelper)
 <%@ var body: String %>
 <%@ var title: String %>
+<%@ var contextPath: String %>
+<%@ var request: javax.servlet.http.HttpServletRequest %>
 <html lang="en">
 <head>
   <title>${title}</title>

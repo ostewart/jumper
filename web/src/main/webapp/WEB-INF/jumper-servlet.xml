@@ -20,6 +20,7 @@
       </property>
       <property name="requireSession" value="false"/>
     </bean>
+    <bean class="com.trailmagic.jumper.web.GlobalModelInterceptor"/>
   </mvc:interceptors>
 
   <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">

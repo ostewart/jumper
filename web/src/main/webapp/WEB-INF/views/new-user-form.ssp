@@ -1,4 +1,5 @@
 <%@ val errors: Iterable[String] %>
+<%@ val contextPath: String %>
 <% attributes("title") = "Jumper | Create Account" %>
     <style type="text/css">
         .signup {
