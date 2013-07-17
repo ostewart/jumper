@@ -40,6 +40,11 @@
         <artifactId>selenium-support</artifactId>
       </dependency>
     <dependency>
+      <!-- needed by guava -->
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
@@ -110,7 +115,7 @@
           <container>
             <containerId>tomcat6x</containerId>
             <zipUrlInstaller>
-              <url>http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-6/v6.0.33/bin/apache-tomcat-6.0.33.zip</url>
+              <url>http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-6/v6.0.37/bin/apache-tomcat-6.0.37.zip</url>
               <installDir>${java.io.tmpdir}/cargoinstalls</installDir>
             </zipUrlInstaller>
             <systemProperties>
