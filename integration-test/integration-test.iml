@@ -66,8 +66,7 @@
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:platform:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:1.4" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:2.33.0" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:2.0.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.code.findbugs:jsr305:2.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.7" level="project" />
   </component>
 </module>
